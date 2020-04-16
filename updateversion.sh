@@ -19,3 +19,9 @@ newsum=$(sha256sum ${PKGNAME}.desktop)
 sed -i "s/pkgver=.*/pkgver=${UPDATEVER}/g" PKGBUILD
 sed -i "s/${cursum}/${newsum}/g" PKGBUILD
 
+# clean
+./clean.sh
+
+# build
+./build.sh
+
