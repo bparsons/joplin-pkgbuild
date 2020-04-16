@@ -5,3 +5,4 @@ joplin*.zip
 joplin*.tar.gz
 *tar.xz
 *~
+packages/
