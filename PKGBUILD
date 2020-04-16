@@ -17,7 +17,7 @@ url="https://joplinapp.org/"
 license=('MIT')
 source=("${pkgname}.desktop" "${pkgname}-desktop.sh" "${pkgname}.sh"
         "${pkgname}-${pkgver}.tar.gz::https://github.com/laurent22/joplin/archive/v${pkgver}.tar.gz")
-sha256sums=('ec7aaec78b3e468a0f3bbb33b3fab2bf08bbe429bdbe343256cce483604de591'
+sha256sums=('f981b7777393c33784d39ec7fca2c83ee429c542d462f2b421b73f7ba6ca7702'
             '41bfdc95a6ee285eb644d05eb3bded72a83950d4720c3c8058ddd3c605cd625d'
             '5245da6f5f647d49fbe044b747994c9f5a8e98b3c2cd02757dd189426a677276'
             '85dac14984fbeb5a9c7c4e49db90a5a87b970f8c4cb5e1f3805751c6c1268925')
