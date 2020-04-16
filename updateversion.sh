@@ -6,7 +6,7 @@
 
 PKGNAME="joplin"
 
-[[ ${1} ]] && [[ ${1-x} ]] || { echo "Please specify version: $0 <version> (example: 1.0.200)"; }
+[[ ${1} ]] && [[ ${1-x} ]] || { echo "Please specify version: $0 <version> (example: 1.0.200)"; exit 1; }
 
 UPDATEVER=$1
 
