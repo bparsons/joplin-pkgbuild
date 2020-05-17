@@ -12,8 +12,9 @@ UPDATEVER=$1
 
 # Update Desktop file, get new sha256sum
 cursum=$(sha256sum ${PKGNAME}.desktop)
-sed -i "s/Version=.*/Version=${UPDATEVER}/g" ${PKGNAME}.desktop
-newsum=$(sha256sum ${PKGNAME}.desktop)
+sed -i "s/Version=.*/Version=${UPDATEVER}/g" ${PKGNAME}.desktop && {
+ newsum=$(sha256sum ${PKGNAME}.desktop)
+}
 
 # Update PKGBUILD
 sed -i "s/pkgver=.*/pkgver=${UPDATEVER}/g" PKGBUILD
