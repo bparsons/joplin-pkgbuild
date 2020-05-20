@@ -11,14 +11,14 @@ PKGNAME="joplin"
 UPDATEVER=$1
 
 # Update Desktop file, get new sha256sum
-cursum=$(sha256sum ${PKGNAME}.desktop)
-sed -i "s/Version=.*/Version=${UPDATEVER}/g" ${PKGNAME}.desktop && {
- newsum=$(sha256sum ${PKGNAME}.desktop)
-}
+CURSUM=$(sha256sum ${PKGNAME}.desktop | awk '{print$1}')
+sed -i "s/Version=.*/Version=${UPDATEVER}/g" ${PKGNAME}.desktop
+sleep 3
+NEWSUM=$(sha256sum ${PKGNAME}.desktop | awk '{print$1}')
+sed -i "s/${CURSUM}/${NEWSUM}/g" PKGBUILD
 
 # Update PKGBUILD
 sed -i "s/pkgver=.*/pkgver=${UPDATEVER}/g" PKGBUILD
-sed -i "s/${cursum}/${newsum}/g" PKGBUILD
 
 # clean
 ./clean.sh
