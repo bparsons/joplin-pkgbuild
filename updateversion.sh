@@ -1,7 +1,9 @@
 #/bin/env bash
 
 #
-# Update Version
+# Update Version for Joplin PKGBUILD
+#
+# Brian Parsons <bp@brianparsons.com>
 #
 
 PKGNAME="joplin"

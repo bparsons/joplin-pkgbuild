@@ -1,36 +1,28 @@
-# Joplin - Arch Linux
+# Joplin PKGBUILD for Arch Linux
 
 ## Overview
 
-This contains the `PKGBUILD` and other build tools to package
-[Joplin](https://joplin.cozic.net/)
+Forked from [https://github.com/alfredopalhares/arch-pkgbuilds](https://github.com/alfredopalhares/arch-pkgbuilds), this contains the PKGBUILD and other build tools to package
+[Joplin](https://joplin.cozic.net/) for Arch Linux. 
 
-This package contains both the desktop and cli client
+This fork contains some additional helper scripts:
 
-## Installing
+### updateversion.sh 
 
-You can use an AUR wrapper like [yay](https://aur.archlinux.org/packages/yay/):
-```
-yay -S joplin
-```
+This script updates the version number in the PKGBUILD and joplin.desktop file, cleans, and builds the updated package.  
 
-[Check the current AUR version here.](https://aur.archlinux.org/packages/joplin/)
-
-## Building
-
-Build with makepkg
+Usage:
 
 ```
-makepkg -fc
+./updateversion.sh <version>
 ```
 
-Check more information on the [Archwiki](https://wiki.archlinux.org/index.php/Makepkg)
+Example: ./updateversion.sh 1.0.118
 
-## Contributing
+### build.sh
 
-Please Open a Pull Request or an Issue :)
+This script builds the package (but does not clean first).
 
-## Maintainer
+### clean.sh
 
- [Alfredo Palhares](https://github.com/masterkorp)
-
+This script cleans the pkg and src directories and is meant to run when a fresh build is needed.
