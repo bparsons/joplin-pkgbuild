@@ -2,7 +2,7 @@
 
 ## Overview
 
-Forked from [https://github.com/alfredopalhares/arch-pkgbuilds](https://github.com/alfredopalhares/arch-pkgbuilds), this contains the PKGBUILD and other build tools to package
+Forked from [https://github.com/alfredopalhares/arch-pkgbuilds](https://github.com/alfredopalhares/arch-pkgbuilds), this contains the PKGBUILD and some helper scripts to package
 [Joplin](https://joplin.cozic.net/) for Arch Linux. 
 
 This fork contains some additional helper scripts:
