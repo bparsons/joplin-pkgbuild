@@ -1,11 +1,9 @@
-# Maintainer: Alfredo Palhares <alfredo at palhares dot me>
+# Maintainer: Brian Parsons <bp@brianparsons.com>
+# Contributor: Alfredo Palhares <alfredo at palhares dot me>
 # Contributor: Mark Wagie <mark dot wagie at tutanota dot com>
 
-# Please contribute to:
-# https://github.com/masterkorp/joplin-pkgbuild
-
 pkgname=joplin
-pkgver=1.3.15
+pkgver=1.4.6
 pkgrel=1
 pkgdesc="A note taking and to-do application with synchronization capabilities"
 arch=('x86_64' 'i686')
@@ -17,11 +15,10 @@ url="https://joplinapp.org/"
 license=('MIT')
 source=("${pkgname}.desktop" "${pkgname}-desktop.sh" "${pkgname}.sh"
         "${pkgname}-${pkgver}.tar.gz::https://github.com/laurent22/joplin/archive/v${pkgver}.tar.gz")
-sha256sums=('c46330e94891b8d8e63217de05721d20dee510ad472af5ee66cbf5fec1d4b494'
+sha256sums=('5578ab88586a329947fd2b3e04cd73f04252926dc9f6812ff20d11c010b4459c'
             '41bfdc95a6ee285eb644d05eb3bded72a83950d4720c3c8058ddd3c605cd625d'
             '5245da6f5f647d49fbe044b747994c9f5a8e98b3c2cd02757dd189426a677276'
             'SKIP')
-
 
 build() {
   # Remove husky (git hooks) from dependencies
@@ -32,17 +29,11 @@ build() {
   # INFO: https://github.com/alfredopalhares/joplin-pkgbuild/issues/25
   export LANG=en_US.utf8
 
-  # npm complains for missing execa package - force to install it
-  npm install --cache "${srcdir}/npm-cache" execa
+  # npm install
   npm install --cache "${srcdir}/npm-cache"
 
-  # CliClient
-  cd "${srcdir}/${pkgname}-${pkgver}/CliClient"
-  npm install --cache "${srcdir}/npm-cache"
-
-  # Electron App
-  cd "${srcdir}/${pkgname}-${pkgver}/ElectronClient"
-  npm install --cache "${srcdir}/npm-cache"
+  # desktop app
+  cd "${srcdir}/${pkgname}-${pkgver}/packages/app-desktop"
   npm run dist
 
 }
@@ -50,9 +41,9 @@ build() {
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   install -d ${pkgdir}/usr/share/{${pkgname},${pkgname}-cli}
-  cp -R CliClient/build/* "${pkgdir}/usr/share/${pkgname}-cli"
-  cp -R CliClient/node_modules "${pkgdir}/usr/share/${pkgname}-cli"
-  cp -R ElectronClient/dist/linux-unpacked/* "${pkgdir}/usr/share/${pkgname}"
+  cp -R packages/app-cli/build/* "${pkgdir}/usr/share/${pkgname}-cli"
+  cp -R packages/app-cli/node_modules "${pkgdir}/usr/share/${pkgname}-cli"
+  cp -R packages/app-desktop/dist/linux-unpacked/* "${pkgdir}/usr/share/${pkgname}"
 
   install -Dm755 ${srcdir}/${pkgname}-desktop.sh "${pkgdir}/usr/bin/${pkgname}-desktop"
   install -m755 ${srcdir}/${pkgname}.sh "${pkgdir}/usr/bin/${pkgname}"
@@ -60,6 +51,9 @@ package() {
   install -Dm644 ${srcdir}/${pkgname}.desktop -t "${pkgdir}/usr/share/applications"
 
   install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+
+  cd "${pkgdir}/usr/share/${pkgname}"
+  ln -s ./@joplinappapp-desktop ./joplin
 
   # Remove unneeded architecture files
   rm -rf "${pkgdir}/usr/share/${pkgname}/resources/app/node_modules/7zip-bin-linux"/arm*
