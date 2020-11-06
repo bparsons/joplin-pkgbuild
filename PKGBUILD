@@ -1,6 +1,8 @@
-# Maintainer: Brian Parsons <bp@brianparsons.com>
-# Contributor: Alfredo Palhares <alfredo at palhares dot me>
+# Maintainer: Alfredo Palhares <alfredo at palhares dot me>
 # Contributor: Mark Wagie <mark dot wagie at tutanota dot com>
+# Contributor: Brian Parsons <bp@brianparsons.com>
+
+# Contribute to: https://github.com/alfredopalhares/arch-pkgbuilds
 
 pkgname=joplin
 pkgver=1.4.6
