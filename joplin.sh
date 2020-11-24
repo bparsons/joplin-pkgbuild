@@ -1,11 +1,11 @@
 #!/bin/bash
 
-readonly joplin_dir="/usr/share/joplin-cli/"
+readonly joplin_dir="/usr/share/joplin-cli/app"
 
-if [[ ! -d $joplin_dir ]]; then
-  echo "Cannot find /usr/share/joplin-cli/"
-  exit 1
-fi
+[[ -d $joplin_dir ]] || {
+  echo "Directory $joplin_dir does not exist";
+  exit 1;
+}
 
 cd $joplin_dir
 

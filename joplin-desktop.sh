@@ -1,13 +1,12 @@
 #!/bin/bash
 
-readonly joplin_dir="/usr/share/joplin/"
+readonly joplin_dir="/usr/share/joplin-desktop"
 
-if [[ ! -d $joplin_dir ]]; then
-  echo "Cannot find /usr/share/joplin/"
-  exit 1
-fi
+[[ -d $joplin_dir ]] || {
+  echo "Directory $joplin_dir does not exist";
+  exit 1;
+}
 
 cd $joplin_dir
 
-./joplin "$@"
-
+./@joplinapp-desktop "${@}"
