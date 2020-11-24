@@ -2,10 +2,10 @@
 
 ## Overview
 
-Forked from [https://github.com/alfredopalhares/arch-pkgbuilds](https://github.com/alfredopalhares/arch-pkgbuilds), this contains the PKGBUILD and some helper scripts to package
+Originally forked from [https://github.com/alfredopalhares/arch-pkgbuilds](https://github.com/alfredopalhares/arch-pkgbuilds), this contains the PKGBUILD and some helper scripts to package
 [Joplin](https://joplin.cozic.net/) for Arch Linux. 
 
-This fork contains some additional helper scripts:
+This fork splits the packages out into joplin-desktop and joplin-cli and contains some additional helper scripts:
 
 ### updateversion.sh 
 
