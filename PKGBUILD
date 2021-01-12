@@ -6,7 +6,7 @@
 
 pkgbase=joplin
 pkgname=(joplin-desktop joplin-cli)
-pkgver=1.5.14
+pkgver=1.6.7
 pkgrel=1
 pkgdesc="A note taking and to-do application with synchronization capabilities"
 arch=('x86_64' 'i686')
@@ -17,7 +17,7 @@ source=("joplin.desktop"
         "joplin-desktop.sh"
         "joplin.sh"
         "${pkgname}-${pkgver}.tar.gz::https://github.com/laurent22/joplin/archive/v${pkgver}.tar.gz")
-sha256sums=('b776453f1a3769284286df9d292ca47b1bbed3cc38f85108109e8472cceac89d'
+sha256sums=('fedc6cef8eb20c0cdc8de85f32cf2f39681414176f86e1c768605cf82c30963d'
             '132afd9b28781aa17d06c133dfffc5a440b27b2a9b5f90ed688d1c4bf2d2f44c'
             '474bacbfba487c2113e4e4d747e1a7710055ae58353b9f97fcbb68db1ec769b9'
             'SKIP')
