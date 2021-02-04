@@ -1,5 +1,5 @@
 [Desktop Entry]
-Version=1.6.8
+Version=1.7.11
 Name=Joplin
 Comment=Joplin - a note taking and to-do application with synchronization capabilities
 Exec=/usr/bin/joplin-desktop
